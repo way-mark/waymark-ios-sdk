@@ -13,11 +13,16 @@
 
 @interface WaymarkSDK : NSObject
 
++ (WaymarkSDK *) sharedInstance;
+
 @property (nonatomic, weak) NSObject <WaymarkSDKDelegate> *delegate;
 
-- (id)initWithApiKey:(NSString *)apiKey;
+@property (nonatomic, strong) NSString *apiKey;
+
 - (void) start;
 - (void) stop;
+
+- (void) registerDeviceToken:(NSData *)deviceToken;
 
 @end
 
